@@ -1,8 +1,8 @@
 # JU-Canteens
 # collaborators
--> sutanjoy
-->aniket
-->suman
-->sugata
-->swapnamoy
-etc.
+-> sutanjoy<br/>
+->aniket<br/>
+->suman<br/>
+->sugata<br/>
+->swapnamoy<br/>
+etc.<br/>
