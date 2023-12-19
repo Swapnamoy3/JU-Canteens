@@ -1,0 +1,369 @@
+:root {
+    --green: #004A2F;
+    --black: #002F35;
+    --alt: #01383f;
+    --light-color: #FFA323;
+    --deep-color: #FF6337;
+
+
+    /* inner glow 👇 */
+    --box-shadow: inset 0 0 0.5px 1px hsla(0, 0%,
+            100%, 0.075),
+        /* shadow ring 👇 */
+        0 0 0 1px hsla(0, 0%, 0%, 0.05),
+        /* multiple soft shadows 👇 */
+        0 0.3px 0.4px hsla(0, 0%, 0%, 0.02),
+        0 0.9px 1.5px hsla(0, 0%, 0%, 0.045),
+        0 3.5px 6px hsla(0, 0%, 0%, 0.09);
+
+}
+
+* {
+    font-family: 'Fjalla One', sans-serif;
+    text-decoration: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+    box-sizing: border-box;
+}
+
+
+section{
+    padding: 2rem 9%;
+    height: 900px;
+}
+
+section:nth-child(even){
+    background:  var(--black);
+}
+
+.intro h1{
+    margin: 20px 30px;
+    padding: 20px 20px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color: #FF6337;
+    text-align: center;
+    font-size: 3rem;
+}
+.intro p{
+    color: var(--light-color);
+    padding: 10px 10px;
+    margin:40px 20px;
+    text-align: center;
+    text-transform: none;
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: 'Fjalla One', sans-serif;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left:0; right:0;
+    padding: 1rem 7%;
+    z-index: 1000;
+    background: var(--black);
+    box-shadow: var(--box-shadow);
+    border-bottom: 1px solid var(--green);
+}
+
+header .logo{
+    color: var(--deep-color);
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+header .logo i{
+    color: var(--deep-color);
+}
+
+header .navbar a{
+    padding: 5px 30px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    color: var(--deep-color);
+}
+
+header .navbar a.active,
+header .navbar a:hover{
+    color: var(--light-color);
+    background-color: var(--green);
+}
+
+header .icons i,
+header .icons a{
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    color: var(--deep-color);
+    background: var(--black);
+    text-align: center;
+}
+
+header .icons i:hover,
+header .icons a:hover{
+    color: var(--light-color);
+    background: var(--green);
+    transform: rotate(360deg);
+}
+
+header .icons #bars{
+    display: none;
+    font-size: 2.5rem;
+}
+
+#contact-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#contact-box form{
+    width: 40%;
+}
+
+#contact-box label{
+    font-weight: bold;
+    font-size: 1.5rem;
+    font-family: 'Lugrasimo', cursive;
+    color:#FFA323;
+}
+
+#contact-box input,#contact-box textarea{
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.sec{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.btn{
+    font-size: 16px;
+    padding: 6px 20px;
+    margin: 20px;
+    color: white;
+    background-color: rgb(181, 125, 22);
+    font-weight: bold;
+    border-color: red;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.center{
+    text-align: center;
+}
+
+.sec{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    background: var(--light-color);
+    color: var(--black);
+    text-align: center;
+    padding: 15px;
+}
+
+.load-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
+    background-color: var(--green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.load-container img{
+    width: 15rem;
+}
+
+.form-group{
+    padding: 9px;
+}
+
+/* .ms-input {
+    display: block;
+    width: 80%;
+    height: 37px;
+    color: #121331;
+    background-color: #fff;
+    border: 1px solid rgba(18, 19, 49, .25);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 8px 12px;
+    transition: box-shadow .2s, border-color .2s;
+    position: relative;
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, .1);
+} */
+
+/* .password{
+    position: relative;
+} */
+
+#toggler {
+    position: relative;
+    top: 4.5vh;
+    left: 21.4vw;
+    cursor: pointer;
+    z-index: 10;
+}
+#toggler2 {
+    position: relative;
+    top: 4.5vh;
+    left: 15vw;
+z-index: 10;
+cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:991px){
+    html{
+        font-size: 55%;
+    }
+    header{
+        padding: 1rem 2rem;
+    }
+    
+    
+    
+}
+
+@media (max-width:768px){
+
+    header .icons #bars{
+        display: inline-block;
+    }
+
+    header .navbar{
+        position: absolute;
+        left: 0;right: 0;top: 100%;
+        padding: 1rem;
+        background-color: var(--black);
+        border-top: 0.1rem solid var(--green);
+        border-bottom: 0.1rem solid var(--green);
+        clip-path: polygon(0 0,100% 0,100% 0,0 0);
+    }
+
+    header .navbar.active{
+        clip-path: polygon(0 0,100% 0,100% 100%,0 100%);
+    }
+    
+    header .navbar a{
+        display: block;
+        padding: 1.5rem;
+        margin: 1rem;
+        font-size: 2rem;
+        background: var(--alt);
+        /* background:  #024149; */
+    }
+    
+    
+    #contact-box form{
+        width: 100%;
+    }
+    
+    #contact-box label{
+        font-weight: bold;
+        font-size: 1.5rem;
+        font-family: 'Lugrasimo', cursive;
+        color:#FFA323;
+    }
+    
+    #contact-box input,#contact-box textarea{
+        font-size: 1.5rem;
+    }
+    
+    .intro p{
+        margin: 0;
+        text-align: justify;
+        font-weight: lighter;
+    }
+
+    #toggler {
+        position: absolute;
+        top: 45vh;
+        left: 85vw;
+        cursor: pointer;
+        z-index: 10;
+    }
+    #toggler2 {
+        position: absolute;
+        top: 51.5vh;
+        left: 85vw;
+    z-index: 10;
+    cursor: pointer;
+    }
+    
+}
+
+@media (max-width:991px){
+    html{
+        font-size: 50%;
+    }
+    
+}
+
