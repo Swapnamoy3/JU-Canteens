@@ -1,0 +1,66 @@
+<%- layout("/_layouts/boilerpalte_signup.ejs") %>
+
+
+        <div class="icons">
+            <i class="fas fa-bars" id="bars"></i>
+        </div>
+    </header>
+
+    <section class="main">
+        <div class="intro">
+            <h1>Sign Up</h1>
+            <p>Welcome to the delightful world of Jadavpur University's Canteen! Our sign up page is your gateway to scrumptious meals, cozy ambiance, 
+                and vibrant camaraderie. Join us and discover a culinary journey that's as enriching as the academic excellence that defines our institution. 
+                Let's dine and connect!</p>
+        </div>
+
+        <div id="contact-box">
+            <form action="/sign_up" method="POST">
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" class="ms-input" name="name" id="name" maxlength="50" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="phonenumber">Phone Number: </label>
+                    <input type="tel" class="ms-input" name="phone" id="phonenumber" placeholder="Enter your phone number" id="i6" pattern="[0-9]{10}"
+                    title="mobile no is of 10 digits" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email: </label>
+                    <input type="text" class="ms-input" name="email" id="email" placeholder="abc@def.com"pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password: </label>
+                    <span><i id="toggler"class="far fa-eye"></i></span>
+                    <input type="password" class="ms-input" id="password"class="password" placeholder="••••••••••"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}"
+                    title="Must contain at least one  number and one uppercase and lowercase letter,at least 8 or more characters and max 16 characters"
+                    required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmpassword"> Confirm Password: </label>
+                    <span><i id="toggler2"class="far fa-eye"></i></span>
+                    <input type="password" class="ms-input" name="confirmpassword" id="confirmpassword" class="confirmpassword" onkeyup="valiadte_password()" placeholder="••••••••••"
+                    required>
+                </div>
+                
+                <span id="wrong_pass_alert"></span> 
+                <div class="sec">
+                    <button class="btn center">Sign Up</button>
+                </div>
+               
+
+            </form>
+            
+
+        </div>
+
+        
+        
+    </section>
+
+    <div class="load-container">
+        <img src="pizza-3844_256.gif">
+    </div>
+
