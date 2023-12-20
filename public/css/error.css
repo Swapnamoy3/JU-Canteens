@@ -1,0 +1,13 @@
+main{
+    height: 100vh;
+    background-color: #002F35 !important;
+    color: white;
+   text-align: center;
+    font-size: 2rem;
+    padding: 10%;
+}
+
+section{
+    border: 2px solid #004A2F;
+    background-color: #004A2F;
+}

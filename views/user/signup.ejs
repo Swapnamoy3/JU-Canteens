@@ -15,7 +15,7 @@
         </div>
 
         <div id="contact-box">
-            <form action="/sign_up" method="POST">
+            <form action="/signup" method="POST">
                 <div class="form-group">
                     <label for="name">Name: </label>
                     <input type="text" class="ms-input" name="name" id="name" maxlength="50" required placeholder="Enter your name">
@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label for="password">Password: </label>
                     <span><i id="toggler"class="far fa-eye"></i></span>
-                    <input type="password" class="ms-input" id="password"class="password" placeholder="••••••••••"
+                    <input type="password" class="ms-input" name="password" id="password"class="password" placeholder="••••••••••"
                     pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}"
                     title="Must contain at least one  number and one uppercase and lowercase letter,at least 8 or more characters and max 16 characters"
                     required>
