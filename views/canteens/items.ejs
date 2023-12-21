@@ -1,0 +1,21 @@
+<%    layout("/_layouts/boilerpalte_canteens.ejs") %>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+
+
+<main class="  flex justify-center" >
+    <ul class=" md:w-[85%] w-[90%] flex mt-20 flex-wrap ">
+            <% for(let item of items) {%>
+                <li class="m-1 p-2 mx-2 rounded-md max-h-80 md:w-[31%] w-[46%] text-center shadow-md border-gray-100 active:shadow-sm border"><a href="#">
+                    <h3 class="text-center font-serif sm:text-lg"><%= item.item %></h3>
+                    <img class="h-64 w-64 mx-auto rounded-md" src= <%= item.foodImage %> alt="">
+                    <p class="font-serif sm:text-md">price: &#8377; <%= item.price %></p>
+                    <!-- <p class="font-serif sm:text-md">price: &#8377; <%=// item.canteen %></p>
+                    <p class="font-serif sm:text-md">price: &#8377; <%=// item.type %></p>
+                </a></li> -->
+                <% } %>
+    </ul>
+</main>
+
+<script src="/javascript/popup.js"></script>

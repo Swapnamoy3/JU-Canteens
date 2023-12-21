@@ -4,7 +4,6 @@ const app = express();
 const path = require('path');
 const port = 8080;
 const ejsMate = require("ejs-mate")
-const juCanteensRoute = require("./routes/canteens.js")
 const userRoute = require("./routes/user.js")
 const ExpressError = require("./utils/ExpressError.js");
 const User = require("./models/user.js");
@@ -12,6 +11,23 @@ const passport = require("passport")
 const LocalStatergy = require("passport-local")
 const session = require("express-session")
 const flash = require("connect-flash");
+const sessionOptions = {
+    secter: "allOut",
+    resave: false,
+    saveUninitialized:true,
+    cookie:{
+        expires: Date.now() + (1000)*(60*60^24*3),
+        maxAge: (1000)*(60*60^24*3),
+        httpOnly: true
+    }
+}
+
+///----------------------------canteens------------
+const Ahar = require("./routes/Ahar.js")
+const Cet = require("./routes/Cet.js")
+const Milandar = require("./routes/Milandar.js")
+const Suruchi = require("./routes/Suruchi.js")
+///----------------------------------------------
 
 
 
@@ -40,11 +56,12 @@ app.use(express.json());
 
 
 
-// //modulation assistance
-// app.engine("ejs",ejsMate);
+//modulation assistance
+app.engine("ejs",ejsMate);
 
-// //sessions 
-// app.use(session(session))
+//sessions 
+// app.use(session(sessionOptions));
+// app.use(flash())
 
 // //authetication
 // passport.use(passport.initialize());
@@ -55,13 +72,26 @@ app.use(express.json());
 
 
 //setting routes
-app.use("/",userRoute)
-app.use("/canteens",juCanteensRoute)
+app.get("/canteens",(req,res)=>{
+    res.render("./canteens/home.ejs")
+})
 
+app.use("/canteens/ahar",Ahar)
+app.use("/canteens/cet",Cet)
+app.use("/canteens/Milandar",Milandar)
+app.use("/canteens/suruchi",Suruchi)
+app.use("/",userRoute)
+
+
+
+//testing routes
+app.get("/xyz",(req,res)=>{
+    res.render("./canteens/dish_and_reviews.ejs")
+})
 
 //error handelling
 app.all("*",(req,res,next)=>{
-    console.dir(req.path);
+    console.log(req);
     next(new ExpressError(404,"this page is not found"));
 })
 
@@ -69,5 +99,5 @@ app.all("*",(req,res,next)=>{
 app.use((err,req,res,next)=>{
     let {status=500,message="somethisg is wrong with server"} = err;
     console.dir(err);
-    res.render("./error.ejs",{status,message});
+    res.status(status).render("error.ejs",{status,message});
 })
