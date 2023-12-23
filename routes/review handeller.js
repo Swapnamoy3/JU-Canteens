@@ -10,8 +10,7 @@ route.post("/:canteen/:type/:id",async (req,res)=>{
     let  review = req.body;//extracting review from review
     let newReview = new Review(review);
 
-    console.log("jkdhfskaj");
-    console.log(review);
+    // console.log(review);
 
     let item = await Item.findById(id);
     item.reviews.push(newReview);//pushing review in review array of item, only the _id of review gets stored
@@ -19,6 +18,13 @@ route.post("/:canteen/:type/:id",async (req,res)=>{
     await newReview.save();//saving review and updated review
     await item.save();
 
+    res.redirect(`/canteens/${canteen}/${type}/${id}`);
+})
+
+route.delete("/:canteen/:type/:id/:reviewId",async (req,res)=>{
+    let {canteen,type,id,reviewId} = req.params;
+    await Review.findByIdAndDelete(reviewId);
+    await Item.findByIdAndUpdate(id,{$pull:{reviews:reviewId}});
     res.redirect(`/canteens/${canteen}/${type}/${id}`);
 })
 

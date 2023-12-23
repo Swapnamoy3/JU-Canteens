@@ -20,11 +20,11 @@
             <div class=" flex justify-between items-baseline">
                 <h1 class="text-4xl">Reviews</h1>
                 <ul class="flex space-x-4 underline">
-                    <li class="active:text-gray-400"><button id="comment">+comment</button></li>
+                    <li class="active:text-gray-400"><button id="comment" class="bg-gray-200 p-1 rounded-md" id="comment">+comment</button></li>
                     <li class="active:text-gray-400"><a href="">login to coment</a></li>
                 </ul>
             </div>
-            <form class="mb-2" method="POST" action="/canteens/<%= items.canteen.toLocaleLowerCase() %>/<%= items.type %>/<%= items._id %>">
+            <form class="mb-2 hidden" method="POST" action="/canteens/<%= items.canteen.toLocaleLowerCase() %>/<%= items.type %>/<%= items._id %>">
                 <ul>
                     <li>
                         <label for="rating">rate the food:</label>
@@ -39,15 +39,27 @@
                 </form>
         </div>
         <ul class=" space-y-4 grid grid-cols-1">
-            <% for(let i=0;i<10;i++){ %>
+            <% for(let review of reviewArray){ %>
             <li class=" border border-grey-500 text-2xl md:text-xl p-2 shadow-sm rounded-sm">
-                <span class="font-extrabold block">@name</span>
-                <span id="rating" class="block"> Rating: 4</span>
-                <span>Lorem ipsum dolor sit amet </span>
-                <span class="block pb-1 text-gray-700 text-end"> <a class="bg-gray-200 font-semibold p-2 rounded-md " href="">delete</a></span>
+                <span class="font-extrabold block">@<%= review.username %></span>
+                <span id="rating" class="block"> Rating: <%= review.rating %></span>
+                <span> <%= review.comment %> </span>
+                <form class="block pb-1 text-gray-700 text-end" action="/canteens/<%= items.canteen.toLocaleLowerCase() %>/<%= items.type %>/<%= items._id %>/<%= review._id %>?_method=DELETE" method="post">
+                     <button class="bg-gray-200 font-semibold p-2 rounded-md ">delete</button>
+                </form>
             </li>
             <% } %>
         </ul>
     </div>
      
 </main>
+
+<script >
+    const commentBtn = document.querySelector("#comment");
+    function hide(){
+        const form =  document.querySelector("form");
+        form.classList.toggle("hidden")
+    }
+
+    commentBtn.addEventListener("click",hide);
+</script>

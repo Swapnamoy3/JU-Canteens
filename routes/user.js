@@ -17,6 +17,7 @@ route.post("/signup",async (req,res,next)=>{
     if(user.password!=user.confirmpassword){
         return next(new ExpressError(400,"your passwords are not same"));
     }
+    console.log(user)
     let newUser = new User(user);
     await newUser.save();
     console.log("new user saved");
