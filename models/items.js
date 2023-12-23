@@ -28,9 +28,13 @@ const itemSchema = new Schema({
     },
     type:{
         type:String,
-        enum: ['Snaks','Drinks',"MC","Deserts"]
+        enum: ['Snacks','Drinks',"MC","Deserts"]
+    },
+    reviews:[{
+        type:Schema.Types.ObjectId,
+        ref:"Review"
+    }]
 
-    }
 })
 
 

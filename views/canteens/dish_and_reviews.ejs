@@ -1,7 +1,53 @@
 <%    layout("/_layouts/boilerpalte_canteens.ejs") %>
 
 <script src="https://cdn.tailwindcss.com"></script>
+<style>
+    *{
+        font-family: serif;
+    }
+</style>
 
-<main class="h-[95%] w-[95%] mt-16 bg-gray-200 mx-auto">
-    <img src="https://t4.ftcdn.net/jpg/04/73/25/49/360_F_473254957_bxG9yf4ly7OBO5I0O5KABlN930GwaMQz.jpg" alt="">
+<main class=" w-full py-24 md:grid md:grid-cols-2  mx-auto  font-extralight">
+    <div class=" w-full h-fit mx-4 sticky bg-white top-24 md:top-46 p-3 border border-grey-300 rounded-md shadow-md">
+    <img class="m-auto mt-1 h-80 " src="<%= items.foodImage %>" alt="">
+    <p><b class="font-bold ">Price:<%= items.price %></b><% %></p>
+    <p><b class="font-bold">Description:</b><%= items.description %></p>
+    </div>
+
+    
+    <div class="md:w-3/4 w-[90%] mx-auto md:mt-0 mt-4 ">
+        <div id="idHead" >
+            <div class=" flex justify-between items-baseline">
+                <h1 class="text-4xl">Reviews</h1>
+                <ul class="flex space-x-4 underline">
+                    <li class="active:text-gray-400"><button id="comment">+comment</button></li>
+                    <li class="active:text-gray-400"><a href="">login to coment</a></li>
+                </ul>
+            </div>
+            <form class="mb-2" method="POST" action="/canteens/<%= items.canteen.toLocaleLowerCase() %>/<%= items.type %>/<%= items._id %>">
+                <ul>
+                    <li>
+                        <label for="rating">rate the food:</label>
+                        <input type="range" id="rating" name="rating">
+                    </li>
+                    <li>
+                        <label for="comment">Comment</label><br>
+                        <textarea name="comment" id="comment" class="w-full mb-2 border border-gray-200 h-16 p-2"></textarea>
+                    </li>
+                </ul>
+                <button class="bg-gray-200 font-semibold p-2 rounded-md ">submit</button>
+                </form>
+        </div>
+        <ul class=" space-y-4 grid grid-cols-1">
+            <% for(let i=0;i<10;i++){ %>
+            <li class=" border border-grey-500 text-2xl md:text-xl p-2 shadow-sm rounded-sm">
+                <span class="font-extrabold block">@name</span>
+                <span id="rating" class="block"> Rating: 4</span>
+                <span>Lorem ipsum dolor sit amet </span>
+                <span class="block pb-1 text-gray-700 text-end"> <a class="bg-gray-200 font-semibold p-2 rounded-md " href="">delete</a></span>
+            </li>
+            <% } %>
+        </ul>
+    </div>
+     
 </main>

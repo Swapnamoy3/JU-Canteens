@@ -18,6 +18,7 @@
 
 }
 
+
 * {
     font-family: 'Fjalla One', sans-serif;
     text-decoration: none;
@@ -151,6 +152,8 @@ footer{
     color: var(--black);
     text-align: center;
     padding: 15px;
+    position: static;
+    bottom: 0;
 }
 
 .para{

@@ -28,8 +28,9 @@ const Cet = require("./routes/Cet.js")
 const Milandar = require("./routes/Milandar.js")
 const Suruchi = require("./routes/Suruchi.js")
 ///----------------------------------------------
-
-
+///----------------------------review------------
+const reviewRoute = require("./routes/review handeller.js");
+///-------------------------------------------------
 
 //DBMS releated declerations
 const { default: mongoose } = require("mongoose");
@@ -71,6 +72,15 @@ app.engine("ejs",ejsMate);
 // passport.deserializeUser(User.deserializeUser());
 
 
+///--------------------path printer----
+app.use((req,res,next)=>{
+    console.log(req.path);
+    console.log(req.method);
+    next()
+})
+///------------------------------------
+
+
 //setting routes
 app.get("/canteens",(req,res)=>{
     res.render("./canteens/home.ejs")
@@ -81,6 +91,7 @@ app.use("/canteens/cet",Cet)
 app.use("/canteens/Milandar",Milandar)
 app.use("/canteens/suruchi",Suruchi)
 app.use("/",userRoute)
+app.use("/canteens",reviewRoute)
 
 
 
