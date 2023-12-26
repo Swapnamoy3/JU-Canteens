@@ -1,6 +1,6 @@
 const { default: mongoose } = require("mongoose");
 const Item = require("../models/items.js")
-
+const User = require("../models/user.js")
 async function main(){
     await mongoose.connect("mongodb://127.0.0.1:27017/JuCanteens");
 }
@@ -19,4 +19,9 @@ async function insert(){
     console.log("successfull");
 }
 
-insert()
+
+async function resetUsers(){
+    await User.deleteMany({});
+}
+// insert()
+resetUsers()

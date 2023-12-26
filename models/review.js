@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const reviewSchema = new Schema({
     username:{
         type:String,
-        default:"Swapanmoy"
+        default:"Riju"
     },
     comment: {
         type:String,
@@ -13,6 +13,10 @@ const reviewSchema = new Schema({
     rating:{
         type:Number,
         required:true
+    },
+    author:{
+        type: Schema.Types.ObjectId,
+        ref:"User"
     }
 })
 

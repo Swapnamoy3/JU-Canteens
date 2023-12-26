@@ -30,7 +30,7 @@ route.get("/:ctn/:typ/:id",wrapAsync( async (req,res)=>{
     let items = await Item.findById(id);
     reviewArray = await Review.find({_id:items.reviews});
 
-    console.log(reviewArray);
+    console.log(reviewArray,"jhdvfha");
     
     res.render("./canteens/dish_and_reviews.ejs",{items,reviewArray});
 }))

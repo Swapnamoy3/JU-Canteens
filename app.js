@@ -8,13 +8,14 @@ const userRoute = require("./routes/user.js")
 const ExpressError = require("./utils/ExpressError.js");
 const method_override = require("method-override"); 
 
-const User = require("./models/user.js");
+
 const passport = require("passport")
-const LocalStatergy = require("passport-local")
+const LocalStatergy = require("passport-local");
+const User = require("./models/user.js");
 const session = require("express-session")
 const flash = require("connect-flash");
 const sessionOptions = {
-    secter: "allOut",
+    secret: "allOut",
     resave: false,
     saveUninitialized:true,
     cookie:{
@@ -24,6 +25,15 @@ const sessionOptions = {
     }
 }
 
+///---------------------flash_and_passport----------------------
+app.use(session(sessionOptions))
+app.use(flash())
+
+app.use(passport.session())
+passport.use(new LocalStatergy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
 
 
 ///----------------------------canteens------------
@@ -73,9 +83,13 @@ app.use((req,res,next)=>{
     next()
 })
 ///------------------------------------
-
-
-//setting routes
+///-----------------flasher-------------------
+app.use((req,res,next)=>{
+    res.locals.success = req.flash("success"); 
+    next();
+})
+///--------------------------------------------
+//setting routes 
 
 app.use("/canteens",canteenRoute);
 app.use("/canteens",reviewRoute);
