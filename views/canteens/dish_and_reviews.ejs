@@ -12,6 +12,13 @@
     <img class="m-auto mt-1 h-80 " src="<%= items.foodImage %>" alt="">
     <p><b class="font-bold ">Price:<%= items.price %></b><% %></p>
     <p><b class="font-bold">Description:</b><%= items.description %></p>
+
+    <% if(is_admin){ %>
+    <div class=" flex justify-between">
+        <a href="/admin/edit/<%= items._id %>" class=" bg-gray-200 p-1 px-2 rounded-md shadow-md active:shadow-sm">edit</a>
+        <a href="/admin/edit/<%= items._id %>/?_method=DELETE" class=" bg-gray-200 p-1 px-2 rounded-md shadow-md active:shadow-sm">delete</a>
+    </div>
+    <% } %>
     </div>
 
     

@@ -31,8 +31,13 @@ route.get("/:ctn/:typ/:id",wrapAsync( async (req,res)=>{
     reviewArray = await Review.find({_id:items.reviews});
 
     console.log(reviewArray,"jhdvfha");
-    
-    res.render("./canteens/dish_and_reviews.ejs",{items,reviewArray});
+    // console.log(req.user.role);
+    let is_admin = false;
+    if(req.user ){
+        is_admin = ( req.user.role == "admin");
+        res.render("./canteens/dish_and_reviews.ejs",{items,reviewArray,is_admin});
+    }
+    res.render("./canteens/dish_and_reviews.ejs",{items,reviewArray,is_admin});
 }))
 
 

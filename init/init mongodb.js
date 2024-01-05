@@ -1,6 +1,7 @@
 const { default: mongoose } = require("mongoose");
 const Item = require("../models/items.js")
 const User = require("../models/user.js")
+const Admin = require("../models/admin.js")
 async function main(){
     await mongoose.connect("mongodb://127.0.0.1:27017/JuCanteens");
 }
@@ -25,3 +26,10 @@ async function resetUsers(){
 }
 // insert()
 resetUsers()
+
+async function adminInit(){
+    let admin  = new Admin({id:"658b16971f1f526e4a275bd6"});
+    await admin.save();
+}
+
+adminInit()

@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const ExpressError = require("../utils/ExpressError.js");
 const User = require("../models/user.js");
 const passport = require("passport");
+const {is_admin_login} = require("../middleware.js")
 
 route.get("/login",(req,res)=>{
     res.render("./user/login.ejs");
@@ -31,8 +32,8 @@ route.post("/signup",async (req,res,next)=>{try{
 })
 
 route.post("/login",passport.authenticate('local',
-{failureRedirect:"/login2",
-failureFlash:true}),(req,res)=>{
+{failureRedirect:"/login",
+failureFlash:true}),is_admin_login,(req,res)=>{
     res.redirect("/canteens");
 })
 

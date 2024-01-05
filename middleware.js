@@ -1,4 +1,6 @@
 const Review = require("./models/review")
+const Admin  = require("./models/admin.js");
+const User = require("./models/user.js")
 
 
 function isLoggedIn(req,res,next){
@@ -20,4 +22,19 @@ const is_author = async (req,res,next)=>{
     next(); 
 }
 
-module.exports = {isLoggedIn,is_author}
+const is_admin = async (req,res,next)=>{
+    if(req.user.role == "admin"){
+        next();
+    }
+    else{
+        res.redirect("/canteens");
+    }
+}
+const is_admin_login = async (req,res,next)=>{
+    if( req.user && req.user.role == "admin"){
+        res.redirect("/admin/dashbord")
+    }
+    else next();
+}
+
+module.exports = {isLoggedIn,is_author,is_admin,is_admin_login}

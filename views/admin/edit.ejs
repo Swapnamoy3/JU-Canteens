@@ -1,0 +1,78 @@
+
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    li label{
+        font-family: 'Times New Roman', Times, serif;
+        padding-right: .2rem;
+    }
+    input,textarea,select{
+        padding: .1rem;
+        border-radius: .2rem;
+    }
+    
+</style>
+<%- layout("/_layouts/boilerpalte_canteens") %>
+
+<main class="my-10 mx-auto p-0 w-full flex flex-col items-center  ">
+    <h1 class=" font-serif"> update item details </h1>
+    <form action="/admin/edit/<%= item._id %>?_method=PUT" method="POST"  class="sm:w-[98%] md:w-4/5  h-fit p-2
+                                            bg-gray-300 
+                                            text-4xl md:text-2xl lg:text-xl
+                                            ">
+
+        <ul class="space-y-7 w-full font-serif p-2 "> 
+            <li class="flex min-w-full p-2 justify-between">
+                <div class="flex-1 flex pr-4">
+                    <label for="item" >name: </label>
+                    <input class="flex-1" id="item" name="item" type="text" placeholder="Name of dish like veg Rice/Sandwitch"
+                    value="<%= item.item %>">
+                </div>
+           
+                <div class="w-1/3 flex ">
+
+                    <label for="price">price</label>
+                    <input class="flex-1 w-fit" id="price" name="price" placeholder="&#8377; 00" type="number" value="<%= item.price %>" >
+                </div>
+            </li>
+            <li class="flex ">
+                <label for="foodImage">image URl</label>
+                <input class="flex-1" id="foodImage" name="foodImage" type="text" placeholder="Enter the image URl" value="<%= item.foodImage %>">
+            </li>
+            
+            <li class=" flex ">
+                <!-- <label for="description">Enter the description</label> -->
+                <textarea name="description" id="description"  rows="3" class="flex-1 text-gray-400 focus:text-black"> <%= item.description %></textarea>
+            </li>
+                        
+            <li>
+                <label for="canteen">Enter the the canteen</label>
+                <select class="flex-1" id="canteen" name="canteen" type=" search" >
+                    <option value="none" disabled>select an canteen</option>
+                    <option value="Ahar" >Ahar</option>
+                    <option value="Suruchi" >Suruchi</option>
+                    <option value="Milandar" >Milandar</option>
+                    <option value="Cet" >Cet</option>
+                </select>
+            </li>
+            
+            <li>
+                <label for="type">Enter the type of food</label>
+                <select class="flex-1" id="type" name="type" >
+                    <option value="none" disabled>select an type</option>
+                    <option value="Drinks">Dricks</option>
+                    <option value="MC">Main Course</option>
+                    <option value="Deserts">Deserts</option>
+                    <option value="Snacks">Snacks</option>
+                </select>
+            </li>
+
+        </ul>
+        <button  class=" p-1 rounded-sm 
+                        bg-red-600 text-white shadow-lg hover:bg-red-900 active:shadow-inner">ENTER</button>
+    </form>
+</main>
+

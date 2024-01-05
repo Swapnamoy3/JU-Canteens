@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body class=" grid grid-cols-[1fr,5fr] overflow-hidden">
+
+    <nav class="  left-0 h-[100svh]  ">
+        <a href="/canteens" class=" hover:opacity-75 hover:bg-gray-200"><span class="flex bg-white font-serif">
+            <img class="max-h-10 max-w-10  my-2 ml-1" src="data:image/png;base64,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" alt="">
+            <h1 class="my-auto mx-1">JuCanteens</h1>
+        </span></a>
+    
+
+        <ul class="  bg-gray-300 h-full rounded-t-lg" >
+            <a href="/admin/Dashbord"><li class="shadow-sm  bg-white p-2 py-3 px-5 w-full">Dashbord</li></a>
+            <a href="https://aniwave.to/home"> <li class="shadow-sm   p-2 py-3 px-5 w-full">Anime</li> </a>
+            <li class="shadow-sm p-2 py-3 px-5 w-full new">New</li>
+            <a href="/canteens"><li class="shadow-sm p-2 py-3 px-5 w-full edit">Edit existing</li></a>
+        </ul>
+    </nav>
+    <main class=" ">
+        
+
+
+
+    </main>
+    <footer></footer>
+
+    <script >
+        const lis = document.querySelectorAll("li");
+        
+        for(let li of lis){
+            li.addEventListener("click",()=>{
+
+                for(let li of lis){
+                    li.classList.add("shadow-sm")
+                    li.classList.remove("bg-white");
+                }
+
+                li.classList.toggle("shadow-sm");
+                li.classList.toggle("bg-white");
+            })
+        }
+
+
+        const main = document.querySelector("main");
+        async function getForm(file){
+            let res = await fetch(`/admin/${file}`);
+            let data = await res.json()
+            console.log(data)
+            
+            main.innerHTML = data.data;
+        }
+
+        const neww = document.querySelector(".new");
+        neww.addEventListener("click",()=>{
+            getForm("new")
+        })
+        
+        const ediit = document.querySelector(".edit");
+        ediit.addEventListener("click",()=>{
+            getForm("edit")
+        })
+
+
+        
+    </script>
+</body>
+</html>

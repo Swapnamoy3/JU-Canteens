@@ -5,6 +5,7 @@ const path = require('path');
 const port = 8080;
 const ejsMate = require("ejs-mate")
 const userRoute = require("./routes/user.js")
+const adminRoute = require("./routes/admin.js")
 const ExpressError = require("./utils/ExpressError.js");
 const method_override = require("method-override"); 
 
@@ -95,6 +96,7 @@ app.use("/canteens",canteenRoute);
 app.use("/canteens",reviewRoute);
 app.use("/",userRoute);
 
+app.use("/admin",adminRoute);
 
 
 
@@ -108,6 +110,6 @@ app.all("*",(req,res,next)=>{
 //handels all error
 app.use((err,req,res,next)=>{
     let {status=500,message="somethisg is wrong with server"} = err;
-    console.dir(err);
+    // console.dir(err);
     res.status(status).render("error.ejs",{status,message});
 })
