@@ -8,12 +8,12 @@ website about all ju canteens
  
 
 <h1>what happend so far</h1>
-> menu for choosing canteens
-> menu for choosing catagory of food called <b>type</b>
-> an <i>item</i> page for selecting an item fo a catagory of a canteen
-> show and review page to give an reviews of a dish
+> menu for choosing canteens<br/>
+> menu for choosing catagory of food called <b>type</b><br/>
+> an <i>item</i> page for selecting an item fo a catagory of a canteen<br/>
+> show and review page to give an reviews of a dish<br/>
+> user authentication <br/>
+> admin authentication <br/>
 
 <h1>to do </h1>
-> Implement session
-> Implement passport
->  
+dekhna baki hai ki kon phaile khatam hota hai ea aur mai
