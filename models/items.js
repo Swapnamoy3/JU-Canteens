@@ -30,6 +30,11 @@ const itemSchema = new Schema({
         type:String,
         enum: ['Snacks','Drinks',"MC","Deserts"]
     },
+    likes:{
+        type:Number,
+        default:0
+    }
+    ,
     reviews:[{
         type:Schema.Types.ObjectId,
         ref:"Review"

@@ -14,7 +14,10 @@ const userSchema = new Schema({
     role:{
         type:String,
         default: "user"
-    }
+    },
+    likedItems:[{
+        type:Schema.Types.ObjectId
+    }]
     
 })
 

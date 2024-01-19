@@ -43,7 +43,7 @@ const canteenRoute = require("./routes/canteens.js")
 ///----------------------------review------------
 const reviewRoute = require("./routes/review handeller.js");
 ///-------------------------------------------------
-
+const likeRoute = require("./routes/like.js")
 
 
 //DBMS releated declerations
@@ -87,6 +87,11 @@ app.use((req,res,next)=>{
 ///-----------------flasher-------------------
 app.use((req,res,next)=>{
     res.locals.success = req.flash("success"); 
+    
+    if(req.user)
+    res.locals.userLiked = req.user.likedItems;
+    else res.locals.userLiked = 1;
+
     next();
 })
 ///--------------------------------------------
@@ -96,20 +101,20 @@ app.use("/canteens",canteenRoute);
 app.use("/canteens",reviewRoute);
 app.use("/",userRoute);
 
+app.use("/like",likeRoute);
 app.use("/admin",adminRoute);
-
 
 
 
 //error handelling
 app.all("*",(req,res,next)=>{
-    // console.log(req);
+    console.log(req);
     next(new ExpressError(404,"this page is not found"));
 })
 
 //handels all error
 app.use((err,req,res,next)=>{
     let {status=500,message="somethisg is wrong with server"} = err;
-    // console.dir(err);
+    console.dir(err);
     res.status(status).render("error.ejs",{status,message});
 })

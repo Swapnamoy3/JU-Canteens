@@ -6,7 +6,9 @@ const wrapAsync = require("../utils/wrapAsync.js")
 
 
 
-route.get("/",(req,res)=>{
+route.get("/",(req,res,next)=>{
+    // console.log();
+
     res.render("./canteens/home.ejs")
 })
 
