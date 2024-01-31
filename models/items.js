@@ -35,6 +35,11 @@ const itemSchema = new Schema({
         default:0
     }
     ,
+    unlikes:{
+        type:Number,
+        default:0
+    }
+    ,
     reviews:[{
         type:Schema.Types.ObjectId,
         ref:"Review"
